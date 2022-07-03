@@ -28,6 +28,8 @@ class Group {
 }
 
 const htmlClassNames = new Day("price-title feature-title","amount-price amount feature-title","subtitle")
+//days of the week
+const dsotw = ["tuesday", "thursday"]
 
 function getGroups() {
     let dateGroups = elementsToArrays("date");
@@ -72,3 +74,56 @@ function chunkArray(array, chunkSize) {
     }
     return result
 }
+
+let groups = getGroups();
+
+function groupsIndexTHead () {
+    let tHead = "";
+    for (let i = 0; i < groups.length; i++) {
+        tHead += `<th colspan="2"> Gruppe ${i+1}</th>`
+    }
+    return tHead;
+}
+function groupsPropTHead() {
+    let tHead = "";
+    groups.forEach(() => {tHead += "<th>Ort</th><th>Treffpunkt/Info</th>"});
+    return tHead;
+}
+function groupsTBody() {
+    let tBody = "";
+    console.log(groups)
+    groups[0].weeks.forEach(week => {
+        dsotw.forEach(day => {
+            tBody += `
+                <tr>
+                    <td>${week[day].date}</td>`
+                    let wd;
+                    groups.forEach((group) => {
+                        wd = group.weeks[groups[0].weeks.indexOf(week)][day];
+                        tBody += `
+                            <td>${wd.location}</td>
+                            <td>${wd.info}</td>
+                        `
+                    });
+            tBody += `
+                </tr>
+            `
+        });
+    })
+    return tBody;
+}
+
+document.body.innerHTML = `<table>
+   <thead>
+       <tr>
+           <th rowspan='2'>Datum</th>
+           ${groupsIndexTHead()}
+       </tr>
+       <tr>
+           ${groupsPropTHead()}
+       </tr>
+   </thead>
+   <tbody>
+       ${groupsTBody()}
+   </tbody>
+</table>`;
