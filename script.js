@@ -96,7 +96,7 @@ function groupsTBody() {
         dsotw.forEach(day => {
             tBody += `
                 <tr>
-                    <td>${week[day].date}</td>`
+                    <th>${week[day].date}</th>`
                     let wd;
                     groups.forEach((group) => {
                         wd = group.weeks[groups[0].weeks.indexOf(week)][day];
@@ -113,17 +113,27 @@ function groupsTBody() {
     return tBody;
 }
 
-document.body.innerHTML = `<table>
-   <thead>
-       <tr>
-           <th rowspan='2'>Datum</th>
-           ${groupsIndexTHead()}
-       </tr>
-       <tr>
-           ${groupsPropTHead()}
-       </tr>
-   </thead>
-   <tbody>
-       ${groupsTBody()}
-   </tbody>
-</table>`;
+let title = document.title;
+document.write(`
+    <html>
+        <head>
+            <title>${title}</title>
+        </head>
+        <body>
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan='2'>Datum</th>
+                        ${groupsIndexTHead()}
+                    </tr>
+                    <tr>
+                        ${groupsPropTHead()}
+                    </tr>
+                </thead>
+                <tbody>
+                    ${groupsTBody()}
+                </tbody>
+            </table>
+        </body>
+    </html>
+`)
