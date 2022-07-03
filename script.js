@@ -229,3 +229,4 @@ function table() {
 		</html>
 	`)
 }
+document.body.onload(table());
