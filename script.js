@@ -27,9 +27,9 @@ class Group {
     }
 }
 
-const htmlClassNames = new Day("price-title feature-title","amount-price amount feature-title","subtitle")
+const htmlClassNames = new Day("price-title feature-title","amount-price amount feature-title","subtitle");
 //days of the week
-const dsotw = ["tuesday", "thursday"]
+const dsotw = ["tuesday", "thursday"];
 
 function getGroups() {
     let dateGroups = elementsToArrays("date");
@@ -53,7 +53,7 @@ function getGroups() {
                 )
             ));
         }
-        groups.push(group)
+        groups.push(group);
     });
     return groups;
 }
@@ -72,7 +72,7 @@ function chunkArray(array, chunkSize) {
     while(array.length > 0) {
         result.push(array.splice(0, chunkSize));
     }
-    return result
+    return result;
 }
 
 let groups = getGroups();
@@ -80,7 +80,7 @@ let groups = getGroups();
 function groupsIndexTHead () {
     let tHead = "";
     for (let i = 0; i < groups.length; i++) {
-        tHead += `<th colspan="2"> Gruppe ${i+1}</th>`
+        tHead += `<th colspan="2"> Gruppe ${i+1}</th>`;
     }
     return tHead;
 }
@@ -91,7 +91,7 @@ function groupsPropTHead() {
 }
 function groupsTBody() {
     let tBody = "";
-    console.log(groups)
+    console.log(groups);
     groups[0].weeks.forEach(week => {
         dsotw.forEach(day => {
             tBody += `
@@ -103,11 +103,11 @@ function groupsTBody() {
                         tBody += `
                             <td>${wd.location}</td>
                             <td>${wd.info}</td>
-                        `
+                        `;
                     });
             tBody += `
                 </tr>
-            `
+            `;
         });
     })
     return tBody;
