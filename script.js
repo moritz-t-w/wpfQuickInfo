@@ -40,12 +40,12 @@ function getGroups() {
         for (let i = 0; i < dateWeeks.length; i++) {
             group.weeks.push(new Week(
                 new Day(
-                    dateWeeks[0][0],
+                    dateWeeks[i][0],
                     locationGroups[i][0][0],
                     infoGroups[i][0][0]
                 ),
                 new Day(
-                    dateWeeks[0][1],
+                    dateWeeks[i][1],
                     locationGroups[i][0][1],
                     infoGroups[i][0][1]
                 )
@@ -53,6 +53,7 @@ function getGroups() {
         }
         groups.push(group)
     });
+    return groups;
 }
 
 function elementsToArrays(property){
