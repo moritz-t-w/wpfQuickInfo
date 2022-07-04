@@ -1,0 +1,22 @@
+{
+    "name": "WPF Quick Info",
+    "action": {},
+    "manifest_version": 3,
+    "version": "1.0.0",
+    "description": "Übersichtliche Darstellung des WPF Training Kalenders.",
+    "homepage_url": "https://github.com/moritz-t-w/wpfQuickInfo",
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://worldsparkourfamily.ch/kalender*"
+            ],
+            "js": [
+                "script.js"
+            ]
+        }
+    ]
+}
