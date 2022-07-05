@@ -1,32 +1,3 @@
-class Day {
-	date = "";
-	location = "";
-	info = "";
-	constructor(date, location, info) {
-		this.date = date;
-		this.location = location;
-		this.info = info;
-	}
-}
-
-class Week {
-	tuesday = {};
-	thursday = {};
-
-	constructor(tuesday, thursday) {
-		this.tuesday = tuesday;
-		this.thursday = thursday;
-	}
-}
-
-class Group {
-	weeks = [];
-
-	constructor(weeks) {
-		this.weeks = weeks;
-	}
-}
-
 function table() {
 	const htmlClassNames = new Day("price-title feature-title", "amount-price amount feature-title", "subtitle");
 	//days of the week
